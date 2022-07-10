@@ -28,10 +28,8 @@ const allowCrossDomain = (_: Request, res: Response, next: Function) => {
 app.use(allowCrossDomain);
 
 // Get All Tasks
-app.get('/', async (req: Request, res: Response): Promise<Response> => {
-  const tasks: TaskType[] = [];
-  const data = readFileSync(path.join(__dirname, 'db.json'), 'utf8');
-  tasks.push(...JSON.parse(data));
+app.get('/', async (_: Request, res: Response): Promise<Response> => {
+  const tasks: TaskType[] = JSON.parse(readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
   return res.status(200).json({
     tasks,
   });
@@ -39,9 +37,7 @@ app.get('/', async (req: Request, res: Response): Promise<Response> => {
 
 // Post Task
 app.post('/', async (req: Request, res: Response): Promise<Response> => {
-  const tasks: TaskType[] = [];
-  const data = readFileSync(path.join(__dirname, 'db.json'), 'utf8');
-  tasks.push(...JSON.parse(data));
+  const tasks: TaskType[] = JSON.parse(readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
 
   const { tags, description, comments, priority, status, date, dueDate } = req.body;
 
@@ -72,10 +68,6 @@ app.post('/', async (req: Request, res: Response): Promise<Response> => {
 
 // Patch Task by Id
 app.patch('/:id', async (req: Request, res: Response): Promise<Response> => {
-  const tasks: TaskType[] = [];
-  const data = readFileSync(path.join(__dirname, 'db.json'), 'utf8');
-  tasks.push(...JSON.parse(data));
-
   const { id } = req.params;
 
   if (!id) {
@@ -83,6 +75,8 @@ app.patch('/:id', async (req: Request, res: Response): Promise<Response> => {
       error: 'Missing id: number',
     });
   }
+
+  const tasks: TaskType[] = JSON.parse(readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
 
   const exists: TaskType | undefined = tasks.find((task: any) => task.id === Number(id));
   if (!exists) {
@@ -121,9 +115,7 @@ app.patch('/status/:id', async (req: Request, res: Response): Promise<Response> 
     });
   }
 
-  const tasks: TaskType[] = [];
-  const data = readFileSync(path.join(__dirname, 'db.json'), 'utf8');
-  tasks.push(...JSON.parse(data));
+  const tasks: TaskType[] = JSON.parse(readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
 
   const exists: TaskType | undefined = tasks.find((task: any) => task.id === Number(id));
   if (!exists) {
@@ -151,6 +143,32 @@ app.patch('/status/:id', async (req: Request, res: Response): Promise<Response> 
   writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(tasks));
   return res.status(200).json({
     task: exists,
+  });
+});
+
+// Delete Task
+app.delete('/:id', async (req: Request, res: Response): Promise<Response> => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({
+      error: 'Missing id: number',
+    });
+  }
+
+  const tasks = JSON.parse(readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
+
+  const exists: TaskType | undefined = tasks.find((task: any) => task.id === Number(id));
+  if (!exists) {
+    return res.status(404).json({
+      error: 'Task not found',
+    });
+  }
+
+  tasks.splice(tasks.indexOf(exists), 1);
+  writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(tasks));
+  return res.status(200).json({
+    message: 'Task deleted',
   });
 });
 
