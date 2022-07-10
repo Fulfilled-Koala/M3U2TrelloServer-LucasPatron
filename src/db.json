@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "tags": ["landingpage"],
+    "tag": "landing page",
     "description": "Revisit Homepage Wickrpark.io",
     "comments": [],
     "priority": "medium",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "tags": ["dashboard"],
+    "tag": "dashboard",
     "description": "Revise Feedback Analytics Page Wednesday.io",
     "comments": [],
     "priority": "high",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "tags": ["designcritique"],
+    "tag": "design critique",
     "description": "Weekly Design Critique: Magiclean Mobile App",
     "comments": [],
     "priority": "low",
@@ -31,17 +31,17 @@
   },
   {
     "id": 4,
-    "tags": ["landingpage"],
+    "tag": "landing page",
     "description": "Design Mindtree Profile Page",
     "comments": [],
     "priority": "high",
-    "status": "work-in-progress",
+    "status": "in-review",
     "date": "2022-07-09T22:43:56.353Z",
     "dueDate": "2022-07-31T00:00:00.000Z"
   },
   {
     "id": 5,
-    "tags": ["illustration"],
+    "tag": "illustration",
     "description": "Sending Message Illustration for Mindtree App",
     "comments": [],
     "priority": "low",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "tags": ["dashboard"],
+    "tag": "dashboard",
     "description": "Revise Feedback Sales Page Wednesday.io",
     "comments": [],
     "priority": "medium",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "tags": ["mobileapp"],
+    "tag": "mobile app",
     "description": "Covid App Dribble Preview",
     "comments": [],
     "priority": "low",
@@ -71,7 +71,7 @@
   },
   {
     "id": 8,
-    "tags": ["dashboard"],
+    "tag": "dashboard",
     "description": "Revise Feedback Product Page Wednesday.io",
     "comments": [],
     "priority": "medium",
@@ -81,22 +81,12 @@
   },
   {
     "id": 9,
-    "tags": ["dashboard"],
+    "tag": "dashboard",
     "description": "Iconhub Dashboard Exploration Preview",
     "comments": [],
     "priority": "low",
     "status": "finished",
     "date": "2022-07-09T22:46:37.153Z",
     "dueDate": "2022-07-10T00:00:00.000Z"
-  },
-  {
-    "id": 10,
-    "tags": ["development"],
-    "description": "Finish Trellis Clone",
-    "comments": [],
-    "priority": "high",
-    "status": "work-in-progress",
-    "date": "2022-07-09T23:46:14.821Z",
-    "dueDate": "2022-07-31T00:00:00.000Z"
   }
 ]
