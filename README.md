@@ -31,7 +31,7 @@ $ npm run postinstall
 Within the `src` directory, we have the following files:
 
 - `index.ts`: The main file for the server.
-- `db.json`: The database containing all of the tasks.
+- `db.json`: The mock database containing all of the tasks.
 - `type.ts`: The type definition for the tasks.
 - `tasks/`: This directory approaches a model-view-controller pattern:
   - `tasks.controller.ts`: The controller for the tasks (managing requests and delegating the work to the `tasks.service.ts`).
