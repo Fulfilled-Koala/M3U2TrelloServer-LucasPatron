@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowCrossDomain = (_: Request, res: Response, next: Function) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 };
