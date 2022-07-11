@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { tasksService } from './tasks.service';
+import { TaskType } from '../type';
 
 function _validatePriority(priority: string): boolean {
   return priority === 'low' || priority === 'medium' || priority === 'high';
@@ -84,6 +85,7 @@ async function patchById(req: Request, res: Response): Promise<Response> {
   }
 
   const { tag, description, comments, priority, status, dueDate } = req.body;
+  console.log(req.body);
 
   const [task, error] = tasksService.patchById(Number(id), {
     tag,
@@ -165,6 +167,49 @@ async function deleteAll(req: Request, res: Response): Promise<Response> {
   });
 }
 
+async function patchComment(req: Request, res: Response): Promise<Response> {
+  const { id } = req.params;
+
+  if (!id || isNaN(Number(id))) {
+    return res.status(400).json({
+      error: 'Invalid id',
+    });
+  }
+
+  const { comment } = req.body;
+  if (
+    !comment ||
+    !comment.username ||
+    !comment.comment ||
+    typeof comment.username !== 'string' ||
+    typeof comment.comment !== 'string' ||
+    comment.comment.length > 150 ||
+    comment.comment.length < 1 ||
+    comment.username.length < 1
+  ) {
+    return res.status(400).json({
+      error: 'Invalid comment',
+    });
+  }
+
+  const updatedComment = {
+    username: comment.username,
+    comment: comment.comment,
+    publishedAt: new Date().toISOString(),
+  };
+  const [task, error] = tasksService.patchComment(Number(id), updatedComment);
+
+  if (error) {
+    return res.status(400).json({
+      error,
+    });
+  }
+
+  return res.status(200).json({
+    task,
+  });
+}
+
 export const tasksController = {
   getAll,
   postOne,
@@ -172,4 +217,5 @@ export const tasksController = {
   patchStatusById,
   deleteById,
   deleteAll,
+  patchComment,
 };

@@ -10,3 +10,4 @@ router
   .delete(tasksController.deleteAll);
 router.route('/:id').patch(tasksController.patchById).delete(tasksController.deleteById);
 router.route('/status/:id').patch(tasksController.patchStatusById);
+router.route('/comments/:id').patch(tasksController.patchComment);

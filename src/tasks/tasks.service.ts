@@ -18,7 +18,7 @@ function getAll(): TaskType[] {
   return _getTasks();
 }
 
-async function postOne(tasks: Omit<TaskType, 'id' | 'comments'>) {
+function postOne(tasks: Omit<TaskType, 'id' | 'comments'>): TaskType {
   const allTasks = _getTasks();
   const newTask: TaskType = {
     id: allTasks.length + 1,
@@ -63,10 +63,31 @@ function deleteAll() {
   return ['All tasks were successfully deleted', null];
 }
 
+function patchComment(
+  id: number,
+  comment: Partial<TaskType['comments'][0]>,
+): [TaskType | null, string | null] {
+  const allTasks = _getTasks();
+
+  const exists: TaskType | undefined = allTasks.find((task: TaskType) => task.id === id);
+  if (!exists) return [null, 'Task not found'];
+
+  const updatedTask: TaskType = {
+    ...exists,
+    comments: [...exists.comments, comment as TaskType['comments'][0]],
+  };
+
+  allTasks.splice(allTasks.indexOf(exists), 1, updatedTask);
+  _writeTasks(allTasks);
+
+  return [updatedTask, null];
+}
+
 export const tasksService = {
   getAll,
   postOne,
   patchById,
   deleteById,
   deleteAll,
+  patchComment,
 };
