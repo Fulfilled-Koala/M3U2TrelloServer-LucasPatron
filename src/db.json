@@ -1,23 +1,70 @@
 [
   {
     "id": 1,
-    "tag": "landing page",
-    "description": "Revisit Homepage Wickrpark.io",
-    "comments": [],
-    "priority": "medium",
+    "tag": "typescript",
+    "description": "Implement the Configuration of Typescript Correctly",
+    "comments": [
+      {
+        "username": "DoktorFloor",
+        "comment": "Turn on EVERYTHING in tsconfig. When something yells at you decide for yourself whether it’s valuable or not. Turn things off as you go. Leave most on",
+        "publishedAt": "2022-07-11T00:50:20.656Z"
+      },
+      {
+        "username": "Kaio",
+        "comment": "You could try another tools to start a project, next time instead start with vite and tell us how you felt.",
+        "publishedAt": "2022-07-11T00:54:34.693Z"
+      },
+      {
+        "username": "RegularLeader",
+        "comment": "I also highly recommend using Vite, or really ANYTHING other than Webpack.",
+        "publishedAt": "2022-07-11T00:58:04.588Z"
+      },
+      {
+        "username": "Sunstorm",
+        "comment": "Webpack makes working with typescript a pain in the ass, and imho it hasn’t really gotten much better even after 4 major version updates.",
+        "publishedAt": "2022-07-11T00:58:14.596Z"
+      },
+      {
+        "username": "Codernos",
+        "comment": "Use Deno and avoid the tsconfig and webpack hassles",
+        "publishedAt": "2022-07-11T00:58:47.379Z"
+      }
+    ],
+    "priority": "high",
     "status": "backlog",
     "date": "2022-07-09T22:42:13.970Z",
-    "dueDate": "2022-08-08T00:00:00.000Z"
+    "dueDate": "2022-07-15"
   },
   {
     "id": 2,
-    "tag": "dashboard",
-    "description": "Revise Feedback Analytics Page Wednesday.io",
-    "comments": [],
-    "priority": "high",
+    "tag": "build",
+    "description": "Migrate Project From Webpack to Vite!",
+    "comments": [
+      {
+        "username": "Coltrane",
+        "comment": "Webpack is written in JavaScript, whilst Vite uses esbuild which is written in Go, making it way much faster.",
+        "publishedAt": "2022-07-11T01:03:20.790Z"
+      },
+      {
+        "username": "Oxiton",
+        "comment": "Correct. Saying \"Vite uses esbuild\" doesn't answer anything. Esbuild is faster because it uses a compiled (and faster) language.",
+        "publishedAt": "2022-07-11T01:03:46.909Z"
+      },
+      {
+        "username": "EndureTheVoid",
+        "comment": "I don't know why anyone would use Webpack over Vite. The difference is night and day...",
+        "publishedAt": "2022-07-11T01:04:24.387Z"
+      },
+      {
+        "username": "Lucas",
+        "comment": "I agree. You can get started here: https://vitejs.dev",
+        "publishedAt": "2022-07-11T01:18:36.517Z"
+      }
+    ],
+    "priority": "medium",
     "status": "backlog",
     "date": "2022-07-09T22:42:57.665Z",
-    "dueDate": "2022-07-22T00:00:00.000Z"
+    "dueDate": "2022-07-24"
   },
   {
     "id": 3,
@@ -35,7 +82,7 @@
     "description": "Design Mindtree Profile Page",
     "comments": [],
     "priority": "high",
-    "status": "in-review",
+    "status": "finished",
     "date": "2022-07-09T22:43:56.353Z",
     "dueDate": "2022-07-31T00:00:00.000Z"
   },
@@ -43,11 +90,42 @@
     "id": 5,
     "tag": "illustration",
     "description": "Sending Message Illustration for Mindtree App",
-    "comments": [],
+    "comments": [
+      {
+        "username": "Taladan",
+        "comment": "Definitely avoid re-implementing standard data structures, since the Rust ones are very good",
+        "publishedAt": "2022-07-09T22:44:00.000Z"
+      },
+      {
+        "username": "Zdenek",
+        "comment": "Rust already have such basic classes like String stabilized thus there are no need for that phase in it's evolution.",
+        "publishedAt": "2022-07-09T22:44:00.000Z"
+      },
+      {
+        "username": "BattleFrog",
+        "comment": "Rust does not have a stable ABI, so if you want to share precompiled Rust code, you have to expose a C-style ABI.",
+        "publishedAt": "2022-07-09T22:44:00.000Z"
+      },
+      {
+        "username": "ShadowSocks",
+        "comment": "Ah I see. So if I wanted to share a dll I would have to compile it in C and then create Rust bindings for it and include it as a crate then?",
+        "publishedAt": "2022-07-09T22:44:00.000Z"
+      },
+      {
+        "username": "WormApe",
+        "comment": "Exposing C ABI in Rust means to use #[repr(C)] on types with public content and extern C on functions.",
+        "publishedAt": "2022-07-09T22:44:00.000Z"
+      },
+      {
+        "username": "Lucas",
+        "comment": "Thanks for the knowledge, I appreciate it very much.",
+        "publishedAt": "2022-07-11T00:42:06.698Z"
+      }
+    ],
     "priority": "low",
     "status": "work-in-progress",
     "date": "2022-07-09T22:44:47.905Z",
-    "dueDate": "2022-07-18T00:00:00.000Z"
+    "dueDate": "2022-07-13"
   },
   {
     "id": 6,
@@ -75,7 +153,7 @@
     "description": "Revise Feedback Product Page Wednesday.io",
     "comments": [],
     "priority": "medium",
-    "status": "finished",
+    "status": "in-review",
     "date": "2022-07-09T22:46:19.433Z",
     "dueDate": "2022-08-23T00:00:00.000Z"
   },
