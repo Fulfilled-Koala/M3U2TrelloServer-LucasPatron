@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { tasksService } from './tasks.service';
-import { TaskType } from '../type';
 
 function _validatePriority(priority: string): boolean {
   return priority === 'low' || priority === 'medium' || priority === 'high';

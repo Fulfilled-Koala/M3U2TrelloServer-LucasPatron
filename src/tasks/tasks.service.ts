@@ -1,13 +1,11 @@
-import { Response } from 'express';
-import { readFileSync, writeFileSync } from 'fs';
+import {readFileSync, writeFileSync} from 'fs';
 import path from 'path';
-import { TaskType } from '../type';
+import {TaskType} from '../type';
 
 const dbPath = path.join(__dirname, '../', 'db.json');
 
 function _getTasks(): TaskType[] {
-  const tasks: TaskType[] = JSON.parse(readFileSync(dbPath, 'utf8'));
-  return tasks;
+  return JSON.parse(readFileSync(dbPath, 'utf8'));
 }
 
 function _writeTasks(tasks: TaskType[]): void {
